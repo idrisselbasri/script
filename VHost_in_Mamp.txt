@@ -1,0 +1,37 @@
+1- Ajoutez ce ligne in host C:\Windows\System32\drivers\etc
+	
+	127.0.0.1	exemple.dev
+	localhost	exemple.dev
+
+-----------------------------------------------------------------------------
+
+2- Modifier le fichier httpd.conf
+
+	Changer _______________
+	# Virtual hosts
+	#Include conf/extra/httpd-vhosts.conf
+
+	Par_____________________
+	# Virtual hosts
+	Include conf/extra/httpd-vhosts.conf
+
+
+-----------------------------------------------------------------------------
+
+3- Ajoutez cet ligne dans le fichier conf/extra/httpd-vhosts.conf
+
+	<VirtualHost *:80>
+	    DocumentRoot 'C:\MAMP\htdocs'
+	    ServerName localhost
+	</VirtualHost>
+
+	<VirtualHost *:80>
+
+	    DocumentRoot "C:\MAMP\htdocs\votre_projet"
+	    ServerName example.dev
+
+	</VirtualHost>
+
+-----------------------------------------------------------------------------
+
+4- Redémarer Apache
