@@ -1,0 +1,10 @@
+1-Ouvrir le FTP
+2-Garder une version de htaccess sur votre ordinateur
+3-Cherger "RewriteEngine on"
+3 - Ajouter ce code en bas de "RewriteEngine on"
+
+
+	# Redirect to HTTPS
+	RewriteCond %{HTTPS} off
+	RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
